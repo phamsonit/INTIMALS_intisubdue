@@ -1,0 +1,40 @@
+Note: SUBDUE for ASTs
+
+Some modifications:
+==================
+- input AST: keep only sub-structure of ASTs under the given root-label and white-labels
+- initial graphs (single-egde graphs) : keep only initial graphs which included root label
+
+
+Some observations:
+=================
+- Subdue extends patterns by using BFS --> ASTs are very deep trees thus Subdue may be hard to find patterns contained leafs
+- Subdue assums that the instances of a pattern don't overlap --> ?
+- Subdue doesn't work well if edges have the same label
+
+
+output patterns: some nodes at the top of the ASTs, e.g., TypeDeclaration, methodDeclaration, body
+Graph:
+      vertex "11": timestamp=1, label=SimpleName
+      vertex "10": timestamp=1, label=MethodDeclaration
+      vertex "12": timestamp=1, label=SimpleName
+      vertex "1": timestamp=1, label=MethodDeclaration
+      vertex "3": timestamp=1, label=MethodDeclaration
+      vertex "2": timestamp=1, label=body
+      vertex "5": timestamp=1, label=TypeDeclaration
+      vertex "4": timestamp=1, label=name
+      vertex "7": timestamp=1, label=name
+      vertex "6": timestamp=1, label=SimpleName
+      vertex "9": timestamp=1, label=bodyDeclarations
+      vertex "8": timestamp=1, label=name
+      edge "11" (7--11): timestamp=1, label=children
+      edge "10" (9--10): timestamp=1, label=children
+      edge "1" (1--4): timestamp=1, label=children
+      edge "3" (9--1): timestamp=1, label=children
+      edge "2" (3--7): timestamp=1, label=children
+      edge "5" (3--2): timestamp=1, label=children
+      edge "4" (4--6): timestamp=1, label=children
+      edge "7" (9--3): timestamp=1, label=children
+      edge "6" (8--12): timestamp=1, label=children
+      edge "9" (5--9): timestamp=1, label=children
+      edge "8" (10--8): timestamp=1, label=children

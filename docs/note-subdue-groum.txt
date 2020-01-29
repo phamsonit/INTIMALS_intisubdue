@@ -1,0 +1,64 @@
+Input XML groum
+-----------------
+files may not produced correctly.
+
+For example, in the file net.sourceforge.ganttproject.chart.OptionsDialogAction_createDialogComponent of cluster 11
+the UseEdges have the same values of From="..." To="..." 
+
+example:
+
+  <UseEdge ID="27" From="23" To="26" />
+  <UseEdge ID="21" From="18" To="20" />
+  <UseEdge ID="75" From="7" To="20" />
+  <UseEdge ID="30" From="23" To="26" />
+
+
+TransitiveEgdes, ControlNode
+----------------------------
+TransitiveEdges connect nearly every nodes in the graph. This makes the graph larger.
+If we keep all TransitiveEdges the number of edges is very larger.
+As a result, Subdue takes a long time to find patterns.
+Otherwise, if we remove TransitiveEdges the graph could be broken.
+
+Solutions:
+- remove control nodes
+- remove TransitiveEdges which connect from Control nodes to another nodes- 
+
+
+Subdue issues itself
+--------------------
+- as the mention of the author, Subdue is not efficient if the graph has many edges.
+especially if the edges are homogeneous, that is there are many edges with the same label.
+
+
+Mining groums steps:
+-------------------
+input java project -[1.extractGroum] -> groums - [2.biggroums] -> clusters - [3.subdueConver] -> graphs (json) - [4.Subdue] -> sub-graphs
+
+
+results of Subdue on GanttProject
+----------------------------------
+	+ rudundant output sub-graphs, ex. cluster31
+	
+	
+biggroum output:
+---------------
+clusters 1,2,4,5,6,9,10,11,14: ava_awt_BorderLayout, javax_swing_JPanel, add(), init()
+clusters 13. : java.awt.Graphics, myTopY_int(), myHeight_int(), myLeftX_int(), myWidth_int() [subdue could not find]
+clusters 25: javax.swing.JComboBox, javax.swing.DefaultCellEditor,  setEditable(), init(), addItem()
+clusters 26, 27, 28: javax.swing.JRadioButton
+clusters 29 :java.awt.GridBagConstraints, gridy_int(), weighty_double(), ...
+clusters 35: java.awt.Insets, bottom_int(), left_int(), right_int()
+
+subdue output:
+--------------
+1-7,10-11, 14, 23, 31, 34: ava_awt_BorderLayout, javax_swing_JPanel, add(), init()
+15: javax_swing_border_Border, 
+17,20 : javax_swing_ImageIcon, 
+25: javax_swing_DefaultCellEditor, javax_swing_JComboBox, setEditable()
+28 : javax_swing_JRadioButton
+29: java_awt_GridBagConstraints
+30: java_awt_image_BufferedImage_getGraphics, java_awt_Graphics, fillRect(), setColor()
+----32: equivalent to isol_ graph of Biggroum
+35: java.awt.Insets, bottom_int(), left_int(), right_int()
+
