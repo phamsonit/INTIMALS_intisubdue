@@ -28,8 +28,6 @@ def DiscoverPatterns(iteration, parameters, graph):
     patternCount = 0
     # get initial one-edge patterns
     parentPatternList = GetInitialPatterns(graph, parameters.temporal)
-    #parentPatternList = GetInitialPatterns(graph, parameters.temporal)
-    print("Initial patterns (" + str(len(parentPatternList)) + "):")
     if DEBUGFLAG:
         print("Initial patterns (" + str(len(parentPatternList)) + "):")
         for pattern in parentPatternList:
@@ -66,6 +64,7 @@ def DiscoverPatterns(iteration, parameters, graph):
             Pattern.PatternListInsert(parentPattern, discoveredPatternList, parameters.numBest, False) # valueBased = False
     return discoveredPatternList
 
+#redefine to mine patterns from AST
 def GetInitialPatternsAST(iteration, graph, temporal = False):
     """Returns list of single-edge, evaluated patterns in given graph with more than one instance."""
     initialPatternList = []
@@ -179,8 +178,6 @@ def Subdue(parameters, graph):
             if (parameters.writePattern):
                 outputFileName = outputdotdir + "/pattern_" + str(iteration) + ".dot"
                 patternList[0].definition.write_to_dot(outputFileName)
-                #outputFileName = outputdotdir+"/"+parameters.outputFileName + "-pattern-" + str(iteration) + ".json"
-                #patternList[0].definition.write_to_file(outputFileName)
             if (parameters.writeInstances):
                 outputFileName = parameters.outputFileName + "-instances-" + str(iteration) + ".json"
                 patternList[0].write_instances_to_file(outputFileName)
@@ -219,6 +216,7 @@ def main():
         parameters.maxSize = len(graph.edges) / 2
     if (parameters.iterations == 0):
         parameters.iterations = len(graph.edges)
+
     Subdue(parameters, graph)
 
 if __name__ == "__main__":

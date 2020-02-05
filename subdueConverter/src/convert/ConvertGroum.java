@@ -25,7 +25,9 @@ public class ConvertGroum {
     private int nbGraph;
     private FileWriter fileOut;
     private Set<String> methodCalls = new HashSet<>();
+
     //////////
+    //store methods called in cluster
     private void readMethod(String path){
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
@@ -61,7 +63,6 @@ public class ConvertGroum {
                             Therefore, we cannot store line number in the attributes since the line numbers
                             of attributes of those nodes are different
                             */
-                            //TODO: choose only CfgNode which are in the method call list
                             if(nodeList.item(i).hasChildNodes()){
                                 if(nodeList.item(i).getNodeName().equals("VarNode")){
                                     nodeId = nodeList.item(i).getAttributes().item(0).getNodeValue();
@@ -84,7 +85,7 @@ public class ConvertGroum {
                                     type = "CfgNode";
                                     //if(nodeList.item(i).getAttributes().getLength()>1)
                                     //lineNb = nodeList.item(i).getAttributes().item(1).getNodeValue();
-                                    //store ID of CfgNode IDs occurred in the list of common method call
+                                    //store ID of CfgNode occurred in the list of common method call
                                     if(methodCalls.contains(Util.decode(nodeList.item(i).getTextContent()))){
                                         //CfgNodeID.add(nodeId);
                                         ++vertexID;
@@ -95,38 +96,36 @@ public class ConvertGroum {
                                         //"\"line\":\"" + lineNb + "\"},\n");
                                         fileOut.write("\"timestamp\": \"1\"}},\n");
                                         //keep the mapping of real ID node and vertexID in the json file
-                                        realID.put(nodeId,String.valueOf(vertexID));
+                                        realID.put(nodeId, String.valueOf(vertexID));
                                     }
                                 }
                             }
                             break;
 
                         case "Edge":
-                            //remove all TransitiveEdges from the graph
+                            //don't store TransitiveEdges
                             if(nodeList.item(i).getNodeName().equals("TransitiveEdge")) break;
 
                             if(nodeList.item(i).hasAttributes()) {
                                 String edge_from = "";
                                 String edge_to = "";
-                                String transitiveEdgeFrom="";
-                                String transitiveEdgeTo="";
+                                String CfgEdgeFrom="";
+                                String CfgEdgeTo="";
                                 NamedNodeMap nodeMap = nodeList.item(i).getAttributes();
                                 for (int j=0; j<nodeMap.getLength(); ++j) {
                                     switch (nodeMap.item(j).getNodeName()){
                                         case "From":
                                             edge_from = realID.get(nodeMap.item(j).getNodeValue());
-                                            transitiveEdgeFrom = nodeMap.item(j).getNodeValue();
+                                            CfgEdgeFrom = nodeMap.item(j).getNodeValue();
                                             break;
                                         case "To":
                                             edge_to = realID.get(nodeMap.item(j).getNodeValue());
-                                            transitiveEdgeTo = nodeMap.item(j).getNodeValue();
+                                            CfgEdgeTo = nodeMap.item(j).getNodeValue();
                                             break;
                                     }
                                 }
-                                //keep TransitiveEdges which connect to/from VarNodes and CfgNodes
-                                if(!realID.containsKey(transitiveEdgeFrom) || !realID.containsKey(transitiveEdgeTo)) break;
-                                //keep TransitiveEdges which connect to/from CfgNodes occurred in the list of method calls
-                                //if(!CfgNodeID.contains(transitiveEdgeFrom) || !CfgNodeID.contains(transitiveEdgeTo)) break;
+                                //keep CfgEdges which connect to/from VarNodes and CfgNodes
+                                if(!realID.containsKey(CfgEdgeFrom) || !realID.containsKey(CfgEdgeTo)) break;
 
                                 ++edgeID;
                                 fileOut.write("{\"edge\": {\n");
@@ -158,7 +157,7 @@ public class ConvertGroum {
             fileOut  = new FileWriter(outPath);
             fileOut.write("[\n");
             //
-            //read method call file methods_i.txt
+            //read method call from file methods_i.txt
             String[] temp = inPath.split("/");
             String clusterID = temp[temp.length-1].split("_")[1];
             String methodsFile = inPath + "/" + "methods_"+clusterID+".txt";
@@ -201,7 +200,7 @@ public class ConvertGroum {
             System.out.println("#input graphs: "+nbGraph);
 
         }catch (Exception e){
-            System.out.println("conver groums error");
+            System.out.println("convert groums (XML to JSON) error "+e);
         }
     }
 }

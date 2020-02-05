@@ -41,10 +41,10 @@ do
 	file=$outputClusterPath/graph_1.dot
 	#if exist a graph
 	if [ -f $file ]; then
-		for dotName in $outputClusterPath/*.dot
+		for dotFileName in $outputClusterPath/*.dot
 		do
-			graphName="${dotName%.*}"
-			dot -Tpng $dotName -o $graphName.png
+			graphFileName="${dotFileName%.*}"
+			dot -Tpng $dotFileName -o $graphFileName.png
 		done
 	fi
 done
