@@ -182,7 +182,7 @@ def Subdue(parameters, graph):
                 outputFileName = parameters.outputFileName + "-instances-" + str(iteration) + ".json"
                 patternList[0].write_instances_to_file(outputFileName)
             if ((iteration < parameters.iterations) or (parameters.writeCompressed)):
-                #TODO: inspect this function to see how to encode the pattern and data
+                #using the pattern which has the highest value to compress the graph
                 graph.Compress(iteration, patternList[0])
             if (iteration < parameters.iterations):
                 # consider another iteration

@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78b42340-fab4-4c9b-9a4f-c3faaf2cbf0d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../convertGroumsToJSON.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../runSubdue.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../runSubdue.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pattern.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pattern.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Subdue.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Subdue.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../subdueConverter.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../subdueConverter.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../subdueConverter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../subdueConverter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../subdueConverter/out/artifacts/subdueConverter_jar/subdueConverter.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../subdueConverter/out/artifacts/subdueConverter_jar/subdueConverter.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../subdueConverter/out/production/convertGraph/convert/ConvertGroum.class" beforeDir="false" afterPath="$PROJECT_DIR$/../subdueConverter/out/production/convertGraph/convert/ConvertGroum.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../subdueConverter/src/convert/ConvertGroum.java" beforeDir="false" afterPath="$PROJECT_DIR$/../subdueConverter/src/convert/ConvertGroum.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,26 +20,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Graph.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="69" selection-start-line="37" selection-start-column="69" selection-end-line="37" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Pattern.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+            <state relative-caret-position="90">
+              <caret line="130" column="18" selection-start-line="130" selection-start-column="12" selection-end-line="130" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Pattern.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="474">
+              <caret line="42" column="18" lean-forward="true" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Subdue.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+            <state relative-caret-position="751">
+              <caret line="52" column="54" selection-start-line="52" selection-start-column="49" selection-end-line="52" selection-end-column="54" />
+              <folding>
+                <element signature="e#116#125#0" expanded="true" />
+                <element signature="e#3049#4936#0" />
+                <element signature="e#4991#6275#0" />
+                <element signature="e#6833#8958#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -49,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Parameters.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+            <state relative-caret-position="240">
+              <caret line="16" column="63" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -73,16 +77,16 @@
       <list>
         <option value="$PROJECT_DIR$/src/Parameters.py" />
         <option value="$PROJECT_DIR$/src/Graph.py" />
-        <option value="$PROJECT_DIR$/src/Pattern.py" />
         <option value="$PROJECT_DIR$/src/Subdue.py" />
+        <option value="$PROJECT_DIR$/src/Pattern.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2289" />
-    <option name="y" value="43" />
-    <option name="width" value="1037" />
-    <option name="height" value="950" />
+    <option name="x" value="1956" />
+    <option name="y" value="24" />
+    <option name="width" value="1377" />
+    <option name="height" value="984" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -90,6 +94,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -106,7 +111,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -139,10 +143,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2289" y="43" width="1037" height="950" extended-state="0" />
+    <frame x="1956" y="24" width="1377" height="984" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18700787" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14011799" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -164,29 +168,35 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Parameters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="69" selection-start-line="37" selection-start-column="69" selection-end-line="37" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pattern.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+        <state relative-caret-position="240">
+          <caret line="16" column="63" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Subdue.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="751">
+          <caret line="52" column="54" selection-start-line="52" selection-start-column="49" selection-end-line="52" selection-end-column="54" />
+          <folding>
+            <element signature="e#116#125#0" expanded="true" />
+            <element signature="e#3049#4936#0" />
+            <element signature="e#4991#6275#0" />
+            <element signature="e#6833#8958#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Graph.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+          <caret line="130" column="18" selection-start-line="130" selection-start-column="12" selection-end-line="130" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pattern.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="42" column="18" lean-forward="true" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
         </state>
       </provider>
     </entry>

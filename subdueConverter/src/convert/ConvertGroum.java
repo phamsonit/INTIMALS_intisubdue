@@ -156,7 +156,7 @@ public class ConvertGroum {
             //
             fileOut  = new FileWriter(outPath);
             fileOut.write("[\n");
-            //
+            //TODO: read data directly from output of itemset mining
             //read method call from file methods_i.txt
             String[] temp = inPath.split("/");
             String clusterID = temp[temp.length-1].split("_")[1];
@@ -188,7 +188,7 @@ public class ConvertGroum {
                     }
                 }else {
                     if (fi.isDirectory()) {
-                        System.out.println("read sub-directory");//TODO read file in sub-directories
+                        System.out.println("read sub-directory");
                     }
                 }
             }

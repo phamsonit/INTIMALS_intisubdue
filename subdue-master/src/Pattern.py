@@ -13,10 +13,42 @@ class Pattern:
         self.instances = []
         self.value = 0.0
 
+    def vertex_evaluate(self, vertices):
+        val = 0
+        increase = 0
+        for v in vertices.itervalues():
+            label = v.attributes['label']
+            if label == 'VarNode':
+                increase = 0
+            else:
+                if label == 'CfgNode':
+                    increase = 1
+            val += increase
+        return val
+
+    def edge_evaluate(self, edges):
+        val = 0
+        increase = 0
+        for edge in edges.itervalues():
+            labelStr = edge.attributes['label']
+            if labelStr == 'CfgEdge':
+                increase = 10
+            else:
+                if labelStr == 'DefEdge':
+                    increase = 2
+                else:
+                    if labelStr == 'UseEdge':
+                        increase = 1
+            val += increase
+        return val
+
     def evaluate(self, graph):
         """Compute value of using given pattern to compress given graph, where 0 means no compression, and 1 means perfect compression."""
         # (instances-1) because we would also need to retain the definition of the pattern for compression
-        self.value = float(((len(self.instances) - 1) * len(self.definition.edges)) / float(len(graph.edges))) 
+        #self.value = float(((len(self.instances) - 1) * len(self.definition.edges)) / float(len(graph.edges)))
+        """extension: Compute value using background knowledge """
+        self.value = float(((len(self.instances) - 1) * (self.edge_evaluate(self.definition.edges)) + self.vertex_evaluate(self.definition.vertices))/float(len(graph.edges)))
+        #print(str(self.edge_evaluate(self.definition.edges))+' '+str(len(self.definition.edges)))
     
     def print_pattern(self, tab):
         print(tab + "Pattern (value=" + str(self.value) + ", instances=" + str(len(self.instances)) + "):")
